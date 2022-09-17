@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include <windows.h>
-#include "Func_add.c"
+#include "basic_math.c"
 
 int main ()
 {
-   int z;
-   printf("Hello, world!\n");
-   printf("How do you do?\n");
-   printf("I'm doing great!\n");
-   printf("00000000000\n");
-   printf("00000000000\n");
+   #ifdef _DEBUG
+      printf("Using Debug mode compiling...\n");    
+   #else
+      printf("Using Release mode compiling...\n");
+   #endif
 
-   z = funcadd(3, 5);
-   printf("3 + 5 = %d\n", z);
+   int x, y, z;
+   printf("Hello, world!\n");
+
+   printf("3 + 5 = %d\n", add(3, 5));
+   printf("3 - 5 = %d\n", sub(3, 5));
+   printf("3 * 5 = %d\n", mul(3, 5));
+   printf("3 / 5 = %f\n", fdiv(3, 0));
 
    system("pause");
    return 0;
